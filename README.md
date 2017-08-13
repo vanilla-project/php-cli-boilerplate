@@ -5,7 +5,7 @@ This repository shows a basic setup for a command line application in PHP.
 
 ## Getting Started
 
-PHP 7.1 or above and Composer is expected to be installed on our system.
+PHP 7 or above and Composer is expected to be installed on our system.
 
 ### Installing Composer
 
@@ -40,11 +40,11 @@ The test for class `Greeting` is only verifying the return value of one method.
 
 ## Running the Application
 
-To run the application execute `hello.php "World"` or `php hello.php "World"`.
+To run the application execute `bin/hello.php "World"` or `php hello.php "World"`.
 You should see the text &ldquo;Hello World&rdquo; being printed.
 
 ```
-$: ./hello.php "World"
+$: bin/hello.php "World"
 Hello World
 ```
 

@@ -5,11 +5,19 @@ namespace Example;
 
 class Greeting
 {
-    private $name;
+    private $name = [];
 
-    public function __construct(string $name)
+    public function __construct()
     {
-        $this->name = $name;
+    }
+
+    public function setArguments(array $arguments)
+    {
+        if (isset($arguments[1])) {
+            $this->name = $arguments[1];
+        } else {
+            $this->name = 'Stranger';
+        }
     }
 
     public function sayHello(): string
