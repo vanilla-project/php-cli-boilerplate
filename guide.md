@@ -24,7 +24,7 @@ PHP originally stood for &ldquo;Personal Home Page&rdquo;, but now stands for &l
 
 PHP packages were traditionally installed via PEAR (PHP Extension and Application Repository), but more recently the standard package and dependency management tool is Composer.
 
-Composer lets us run install commands to add packages to our system, for example `composer install phpunit` would add the unit testing framework PHPUnit to our system. 
+Composer lets us run install commands to add packages to our system, for example `composer require phpunit` would add the unit testing framework PHPUnit to our system. 
 
 For instructions on how to install Composer visit [getcomposer.org](https://getcomposer.org/download/).
 
