@@ -5,8 +5,6 @@ require __DIR__ . '/../vendor/autoload.php';
 
 use Example\Greeting;
 
-$greeting = new Greeting();
-
-$greeting->setArguments($argv);
+$greeting = new Greeting($argv[1]);
 
 echo $greeting->sayHello();

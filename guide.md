@@ -1,10 +1,8 @@
 ---
-title: PHP Module
+title: PHP Command Line Application
 date: 2017-08-13
 tags:
-  - module
-  - composer
-  - package
+  - command-line
 ---
 
 PHP is a general-purpose server-side scripting language primarily used in web development. Originally created by Rasmus Lerdorf in 1994, it is now by The PHP Development Team.
@@ -85,14 +83,12 @@ In our guides we will be using PHPUnit as the default testing framework.
 
 ## Directory Structure
 
-A typical directory structure for a PHP project consists of a `src` directory that contains all source files and a `tests` directory that includes all tests. For web applications the publically accessible files (eg. `index.php`) would reside in a `public` directory which would then be your webservers document root.
+A typical directory structure for a PHP project consists of a `src` directory that contains all source files and a `tests` directory that includes all tests. For command-line applications the files to be executed to start your application (eg. `hello.php`) would reside in a `bin` directory.
 
-Another common convention is having a `bin` directory that may contain executable files to start your application.
-
-We provided a working example of a minimal project on [Github](provide URL here).
+We provided a working example of a minimal project on [github.com/vanilla-project/php-command-line](https://github.com/vanilla-project/php-command-line).
 <ul class="directory-structure">
   <li class="directory">src</li>
-  <li class="directory">test</li>
+  <li class="directory">tests</li>
   <li class="directory">bin</li>
   <li class="file">composer.json</li>
   <li class="file">composer.lock</li>
@@ -109,9 +105,7 @@ For example the class `Vanilla` should be contained in file `Vanilla.php`, the p
 Tests match their production code file names with a `Test` suffix, e.g. tests for code in `src/Vanilla.php` should be written in `test/VanillaTest.php`.
 
 
-
 ## Example Project
-
 
 The repository for the example applications is available at [github.com/vanilla-project/php-command-line](https://github.com/vanilla-project/php-command-line).
 
@@ -119,6 +113,31 @@ The main application consists of basically three files:
 
 - `bin/hello.php` is the main executable that instantiates and runs:
   - `src/Example/Greeting.php` contains the main application.
+
+
+### Input
+
+In PHP to use the standard input (STDIN) of the command-line we use the reserved variable `$argv` which contains an array of the script name and any arguments following that. Eg.:
+
+```
+php bin/hello.php "arg1" "arg2" "arg3"
+```
+
+`var_dump($argv)` would return:
+
+```
+array(4) {
+  [0]=>
+  string(10) "hello.php"
+  [1]=>
+  string(4) "arg1"
+  [2]=>
+  string(4) "arg2"
+  [3]=>
+  string(4) "arg3"
+}
+```
+
 
 ### Running the Tests
 
@@ -128,14 +147,12 @@ All tests can be run by executing
 vendor/phpunit/phpunit/phpunit
 ```
 
-`phpunit` will automatically find all tests inside the `test` directory and run them based on the configuration in the `phpunit.xml` file.
+`phpunit` will automatically find all tests inside the `tests` directory and run them based on the configuration in the `phpunit.xml` file.
 
 
 #### Testing Approach
 
-The first test for the class `Greeting` verifies that the return value of the `sayHello` method contains the name of the person and also contains the initial greeting &ldquo;Good&rdquo;.
-
-The second and third tests uses stubs to override the default behaviour of the `DateTime` class injected into the class' constructor so that we can test the expected return value depending on the time of day.
+The test for class `Greeting` is only verifying the return value of one method. 
 
 
 ### Running the Application
@@ -147,3 +164,5 @@ You should see the text &ldquo;Hello World&rdquo; being printed.
 $: bin/hello.php "World"
 Hello World
 ```
+
+You should see the text &ldquo;Hello World&rdquo; being printed.
