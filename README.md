@@ -30,7 +30,7 @@ All tests can be run by executing
 vendor/phpunit/phpunit/phpunit
 ```
 
-`phpunit` will automatically find all tests inside the `test` directory and run them based on the configuration in the `phpunit.xml` file.
+`phpunit` will automatically find all tests inside the `tests` directory and run them based on the configuration in the `phpunit.xml` file.
 
 
 ### Testing Approach
