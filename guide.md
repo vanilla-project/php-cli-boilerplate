@@ -100,7 +100,7 @@ We provided a working example of a minimal project on [github.com/vanilla-projec
 Directory names are in lower case. Class and interface files should be in upper case and match the class or interface names.
 Configuration, routes, and publically accessible files should be in lower case.
  
-For example the class `Vanilla` should be contained in file `Vanilla.php`, the publically accessible route to the application should be `index.php`.
+For example the class `Vanilla` should be contained in file `Vanilla.php`, the publicly accessible route to the application should be `index.php`.
 
 Tests match their production code file names with a `Test` suffix, e.g. tests for code in `src/Vanilla.php` should be written in `test/VanillaTest.php`.
 
@@ -109,34 +109,10 @@ Tests match their production code file names with a `Test` suffix, e.g. tests fo
 
 The repository for the example applications is available at [github.com/vanilla-project/php-command-line](https://github.com/vanilla-project/php-command-line).
 
-The main application consists of basically three files:
+The main application consists of basically two files:
 
 - `bin/hello.php` is the main executable that instantiates and runs:
   - `src/Example/Greeting.php` contains the main application.
-
-
-### Input
-
-In PHP to use the standard input (STDIN) of the command-line we use the reserved variable `$argv` which contains an array of the script name and any arguments following that. Eg.:
-
-```
-php bin/hello.php "arg1" "arg2" "arg3"
-```
-
-`var_dump($argv)` would return:
-
-```
-array(4) {
-  [0]=>
-  string(10) "hello.php"
-  [1]=>
-  string(4) "arg1"
-  [2]=>
-  string(4) "arg2"
-  [3]=>
-  string(4) "arg3"
-}
-```
 
 
 ### Running the Tests
@@ -157,12 +133,12 @@ The test for class `Greeting` is only verifying the return value of one method.
 
 ### Running the Application
 
-To run the application execute `bin/hello.php "World"` or `php hello.php "World"`.
+To run the application execute `bin/hello.php` or `php bin/hello.php`.
 You should see the text &ldquo;Hello World&rdquo; being printed.
 
 ```
-$: bin/hello.php "World"
-Hello World
+$: bin/hello.php
+Hello
 ```
 
-You should see the text &ldquo;Hello World&rdquo; being printed.
+You should see the text &ldquo;Hello&rdquo; being printed.
